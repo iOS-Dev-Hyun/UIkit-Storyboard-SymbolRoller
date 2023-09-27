@@ -9,21 +9,28 @@ import UIKit
 
 class SymbolRollerViewController: UIViewController {
 
+    let symbols = ["sun.min", "moon", "cloud", "wind", "snowflake"]
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        reload()
+    }
+     
+    func reload() {
+        let symbol = symbols.randomElement()!
+        imageView.image = UIImage(systemName: symbol)
+        label.text = symbol
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonTapped(_ sender: Any) {
+        reload()
     }
-    */
+    
+    
+ 
 
 }
